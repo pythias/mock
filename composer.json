@@ -1,6 +1,6 @@
 {
     "name": "pythias/mock",
-    "description": "Simulation data generator for API",
+    "description": "Mock.php is a simulation data generator for API",
     "license": "MIT",
     "authors": [
         {

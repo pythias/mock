@@ -1,0 +1,16 @@
+{
+    "name": "pythias/mock",
+    "description": "Simulation data generator for API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pythias", 
+            "email": "pythias@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload" : {
+        "psr-4" : {"Mock\\": "src/"}
+    }
+}

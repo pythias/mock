@@ -12,6 +12,7 @@ class Request {
         if (headers_sent() == false) {
             usleep($ms * 1000);
             header("Location: {$url}");
+            exit;
         } else {
             //TODO: HEADER失败的处理
         }

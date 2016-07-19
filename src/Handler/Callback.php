@@ -4,10 +4,6 @@ namespace Mock\Handler;
 define('KEY_MOCK_FUNCTION', '_MOCK_');
 
 class Callback {
-    /**
-     * 添加函数处理
-     * @param [type] $callbacks [description]
-     */
     static public function handle(&$template) {
         if (isset($template[KEY_MOCK_FUNCTION]) == false || is_array($template[KEY_MOCK_FUNCTION]) == false) {
             return;

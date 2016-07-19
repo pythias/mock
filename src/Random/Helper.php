@@ -13,19 +13,39 @@ class Helper {
 
     static public function pick($pool, $min = null, $max = null, $glue = null) {
         if ($min == null) {
-            if (is_array($pool)) {
-                return $pool[array_rand($pool)];
-            }
-
-            if (is_string($pool)) {
-                return mb_substr($pool, Basic::natural(0, mb_strlen($pool) - 1), 1);
-            }
-
-            return Basic::natural(0, $pool);
+            return self::_simplePick($pool);            
         }
 
         $len = Basic::natural($min, $max);
+        return self::_arrayPick($pool, $len, $glue);
+    }
+
+    static private function _simplePick($pool) {
+        if (is_array($pool)) {
+            return $pool[array_rand($pool)];
+        }
+
+        if (is_string($pool)) {
+            $tmp = explode('|', $pool);
+            if (count($tmp) > 1) {
+                return $tmp[array_rand($tmp)];
+            }
+
+            return mb_substr($pool, Basic::natural(0, mb_strlen($pool) - 1), 1);
+        }
+
+        return Basic::natural(0, $pool);
+    }
+
+    static private function _arrayPick($pool, $len, $glue) {
         $pool = self::json($pool);
+        if (is_string($pool)) {
+            $tmp = explode('|', $pool);
+            if (count($tmp) > 1) {
+                $pool = $tmp;
+            }
+        }
+        
         $size = is_array($pool) ? count($pool) : mb_strlen($pool);
         $indexes = array();
         while (1) {

@@ -46,9 +46,16 @@ class Placeholder {
 
         if (empty($params) == false) {
             $formated = array();
-            $params = explode(', ', $params);
+            $params = explode(',', $params);
             foreach ($params as $value) {
-                $formated[] = trim($value, "'");
+                $value = trim($value);
+                if ($value[0] == "'" && $value[strlen($value) - 1] == "'") {
+                    $formated[] = substr($value, 1, strlen($value) - 2);
+                } else if ($value[0] == '"' && $value[strlen($value) - 1] == '"') {
+                    $formated[] = substr($value, 1, strlen($value) - 2);
+                } else {
+                    $formated[] = $value;
+                }
             }
         }
 

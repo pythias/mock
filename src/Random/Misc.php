@@ -60,7 +60,7 @@ class Misc {
         $last = array("1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2");
 
         $id = $addressId . Date::date('Ymd') . Basic::string('number', 3);
-
+        
         for ($i = 0; $i < strlen($id); $i++) { 
             $sum += $id[$i] * $rank[$i];
         }

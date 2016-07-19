@@ -29,7 +29,7 @@ class Image {
             $foreground = null;
         }
 
-        if ($size == '') { 
+        if (empty($size)) { 
             $size = \Mock\Dictionary\UI::pickSize();
         }
 

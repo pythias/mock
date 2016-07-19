@@ -91,4 +91,3 @@ $s = <<<MOCK
 MOCK;
 echo json_encode(Mock\Mock::mock($s), JSON_PRETTY_PRINT) . PHP_EOL;
 
-

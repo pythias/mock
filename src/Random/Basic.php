@@ -11,7 +11,7 @@ class Basic {
             return $value;
         }
 
-        return self::natural(0, $seed) == 1 ? boolval($value) : !$value;
+        return self::natural(0, $seed) == 1 ? (bool)($value) : !$value;
     }
 
     static public function bool($seed = 2.0, $value = null) {

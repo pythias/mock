@@ -10,6 +10,89 @@ A PHP version of [Mock.js](http://mockjs.com/)
 
 ## Examples
 
+### API
+
+```
+$s = <<<MOCK
+{
+    "statuses|10": [
+        {
+            "created_at": "@date('D M d H:i:s O Y')",
+            "id": "@define('mid')",
+            "mid": "\"@define('mid')\"",
+            "idstr": "\"@define('mid')\"",
+            "text": "@csentence()",
+            "source": "微游戏",
+            "favorited": "@bool()",
+            "truncated": "@bool()",
+            "in_reply_to_status_id": "",
+            "in_reply_to_user_id": "",
+            "in_reply_to_screen_name": "",
+            "geo": {
+                "type": "Point",
+                "coordinates": [
+                    0,
+                    0
+                ]
+            },
+            "user": {
+                "id": "@define('uid')",
+                "idstr": "\"@define('uid')\"",
+                "screen_name": "@define('name')",
+                "name": "@define('name')",
+                "province": "100",
+                "city": "1000",
+                "location": "其他",
+                "description": "@ctitle(5, 20)",
+                "url": "",
+                "profile_image_url": "http://tp4.sinaimg.cn/@define('uid')/50/1/1",
+                "domain": "",
+                "gender": "@pick('mf')",
+                "followers_count": "@int(1, 1000000)",
+                "friends_count": "@int(1, 2000)",
+                "statuses_count": "@int(1, 100000)",
+                "favourites_count": "@int(1, 100)",
+                "created_at": "@date('D M d H:i:s O Y')",
+                "following": "@bool()",
+                "allow_all_act_msg": "@bool()",
+                "geo_enabled": "@bool()",
+                "verified": "@bool()",
+                "verified_type": -1,
+                "allow_all_comment": "@bool()",
+                "avatar_large": "http://tp4.sinaimg.cn/@define('uid')/180/1/1",
+                "verified_reason": "",
+                "follow_me": "@bool()",
+                "online_status": 1,
+                "bi_followers_count": "@int(1, 100)",
+                "lang": "zh-cn",
+                "level": 1,
+                "type": 1,
+                "badge": {}
+            },
+            "annotations": [
+                {
+                    "server_ip": "10.73.19.156"
+                }
+            ],
+            "reposts_count": "@int(1, 100)",
+            "comments_count": "@int(1, 100)",
+            "mlevel": 0
+        }
+    ],
+    "hasvisible": false,
+    "previous_cursor": 0,
+    "next_cursor": 0,
+    "total_number": "@int(1, 100)",
+    "_DEFINE_" : {
+        "mid": "@string('number', 16, 16)",
+        "uid": "@string('number', 10, 10)",
+        "name": "@ctitle(2, 8)"
+    }
+}
+MOCK;
+
+```
+
 ### Address
 
 ```

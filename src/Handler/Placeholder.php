@@ -21,6 +21,7 @@ class Placeholder {
             'Mock\Random\Misc',
             'Mock\Random\Name',
             'Mock\Random\Text',
+            'Mock\Random\Web',
         );
 
         foreach ($classes as $class) {

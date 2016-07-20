@@ -71,7 +71,7 @@ $s = <<<MOCK
             },
             "annotations": [
                 {
-                    "server_ip": "10.73.19.156"
+                    "server_ip": "@ip()"
                 }
             ],
             "reposts_count": "@int(1, 100)",
@@ -91,6 +91,64 @@ $s = <<<MOCK
 }
 MOCK;
 
+```
+
+#### Redirect
+
+```
+$s = <<<MOCK
+{
+    "_MOCK_": [
+        {
+            "function": "redirect",
+            "url": "http://example.com?rid=@natural()&pid=@request('pid', '0')",
+            "ms": "@int(100, 500)"
+        }
+    ]
+}
+MOCK;
+```
+
+#### Callback
+
+Three asynchronous callback in 1-2s, 4-8s & 10-16s.
+
+```
+$s = <<<MOCK
+{
+    "_MOCK_": [
+        {
+            "function": "callback",
+            "url": "http://api.example.com?rid=@natural()&pid=@request('pid', '0')",
+            "ms": [
+                "@int(1000, 2000)",
+                "@int(4000, 8000)",
+                "@int(10000, 16000)"
+            ]
+        }
+    ]
+}
+MOCK;
+```
+
+#### Simulation of a delay request
+
+```
+$s = <<<MOCK
+{
+    "code" : 0,
+    "message" : "success",
+    "data" : {
+        "k" : "@string(10)"
+    }
+    "_MOCK_": [
+        {
+            "function": "sleep",
+            "ms": "@int(100, 500)"
+        }
+    ]
+}
+MOCK;
 ```
 
 ### Address
@@ -241,6 +299,17 @@ MOCK;
 \Mock\Mock::mock("@ctitle(5)");
 \Mock\Mock::mock("@ctitle(3, 5)");
 ```
+
+### Web
+
+```
+\Mock\Mock::mock("@email('staff.weibo.com')");
+\Mock\Mock::mock("@email()");
+\Mock\Mock::mock("@domain('weibo')");
+\Mock\Mock::mock("@domain()");
+\Mock\Mock::mock("@ip()");
+```
+
 
 
 

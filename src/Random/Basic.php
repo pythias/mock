@@ -27,7 +27,7 @@ class Basic {
     }
 
     static public function integer($min = PHP_INT_MIN, $max = PHP_INT_MAX) {
-        return rand($min, $max);
+        return rand(intval($min), intval($max));
     }
 
     static public function int($min = PHP_INT_MIN, $max = PHP_INT_MAX) {

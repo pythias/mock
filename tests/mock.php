@@ -12,7 +12,7 @@ $s = <<<MOCK
             "id": "@inc('project_id')",
             "project_id": "1@date('dHis')@string('number', 3)@string('number', 3)@natural(0, 9)",
             "uid": "@natural(10000, 9999999999)",
-            "catalogs": "@pick([\"娱乐\",\"电影\",\"音乐\",\"出版\",\"旅游\",\"游戏\"], 1, 5, ',')",
+            "catalogs": "@pick(\"娱乐|电影|音乐|出版|旅游|游戏\", 1, 5, '.')",
             "classic": "1",
             "name": "@ctitle(10, 30)",
             "dest_fund_amount": "@float(10000, 100000, 2, 2)",
@@ -67,27 +67,6 @@ $s = <<<MOCK
         }
     ]
 } 
-MOCK;
-
-echo json_encode(Mock\Mock::mock($s), JSON_PRETTY_PRINT) . PHP_EOL;
-
-$s = <<<MOCK
-{
-    "rows_by_count1|@define('count1')": {
-        "rows2|2": {
-            "value": "@natural(1, 100)"
-        },
-        "rows_by_count2|@define('count2')": {
-            "value": "@natural(1, 100)"
-        }
-    },
-    "count1": "@define('count1')",
-    "count2": "@define('count2')",
-    "_DEFINE_": {
-        "count1": "@int(1, 5)",
-        "count2": "@int(1, 2)"
-    }
-}
 MOCK;
 echo json_encode(Mock\Mock::mock($s), JSON_PRETTY_PRINT) . PHP_EOL;
 

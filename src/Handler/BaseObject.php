@@ -1,7 +1,7 @@
 <?php
 namespace Mock\Handler;
 
-class Object {
+class BaseObject {
     static public function handle($template, $count = null) {
         if ($count == null) {
             return self::_handle($template);
